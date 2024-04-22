@@ -32,7 +32,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-input[type="text"], input[type="password"], input[type="email"], input[type="submit"] {
+input[type="text"], input[type="password"], input[type="email"], select, input[type="submit"] {
   padding: 10px;
   margin-top: 8px;
   width: calc(100% - 22px); /* Adjust width to account for padding and border */
@@ -102,6 +102,12 @@ a:hover {
     <div class="input-group">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <!-- Added dropdown for user status -->
+    <div class="input-group">
+      <%= f.label :status %><br />
+      <%= f.select :status, User.statuses.keys.map { |status| [status.titleize, status] }, include_blank: "Select Role" %>
     </div>
 
     <div class="actions">

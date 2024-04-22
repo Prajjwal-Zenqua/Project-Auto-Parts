@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum :status, [:seller, :buyer]
+  enum status: { seller: 0, buyer: 1 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
