@@ -48,6 +48,9 @@ gem "devise"
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 
+gem "image_processing", ">= 1.2"
+
+
 gem "bootstrap-sass"
 
 group :development, :test do
