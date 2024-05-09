@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Parts Store</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    .card-header {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .list-group-item-action:hover {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 960px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        Search for Products
+      </div>
+      <div class="card-body">
+        <%= form_tag(products_path, method: "get", class: "form-row align-items-center") do %>
+          <div class="col-auto">
+            <%= label_tag(:name, "Product Name:") %>
+            <%= text_field_tag(:name, params[:name], class: "form-control mb-2") %>
+          </div>
+          <div class="col-auto">
+            <%= label_tag(:part_number, "Part Number:") %>
+            <%= text_field_tag(:part_number, params[:part_number], class: "form-control mb-2") %>
+          </div>
+          <div class="col-auto">
+            <%= label_tag(:min_price, "Minimum Price:") %>
+            <%= text_field_tag(:min_price, params[:min_price], class: "form-control mb-2") %>
+          </div>
+          <div class="col-auto">
+            <%= label_tag(:max_price, "Maximum Price:") %>
+            <%= text_field_tag(:max_price, params[:max_price], class: "form-control mb-2") %>
+          </div>
+          <div class="col-auto">
+            <%= label_tag(:min_stock, "Minimum Stock:") %>
+            <%= number_field_tag(:min_stock, params[:min_stock], class: "form-control mb-2") %>
+          </div>
+          <div class="col-auto">
+            <%= submit_tag("Search", class: "btn btn-primary mb-2") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <h2 class="mt-4">Products</h2>
+    <div class="list-group mt-3">
+      <% @products.each do |product| %>
+        <a href="<%= product_path(product) %>" class="list-group-item list-group-item-action">
+          <strong><%= product.name %></strong> - <%= product.part_number %> - <%= number_to_currency(product.price) %> - Stock: <%= product.stock_quantity %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

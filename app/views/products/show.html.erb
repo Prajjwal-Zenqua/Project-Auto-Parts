@@ -1,3 +1,20 @@
-<% if @product.productimage.attached? %>
+<%
+=begin%>
+ <% if @product.productimage.attached? %>
   <%= image_tag @product.productimage %>
+<% end %> 
+<%
+=end%>
+<!-- app/views/products/show.html.erb -->
+<p>Name: <%= @product.name %></p>
+<p>Description: <%= @product.description %></p>
+<p>Price: <%= number_to_currency(@product.price) %></p>
+<p>Part Number: <%= @product.part_number %></p>
+<p>Stock Quantity: <%= @product.stock_quantity %></p>
+
+<% if @product.images.attached? %>
+  <h3>Images:</h3>
+  <% @product.images.each do |image| %>
+    <%= image_tag image, height: '200px' %>
+  <% end %>
 <% end %>

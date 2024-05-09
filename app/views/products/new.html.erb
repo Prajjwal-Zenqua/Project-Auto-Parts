@@ -1,5 +1,40 @@
 <!-- app/views/products/new.html.erb -->
-<%= form_with(model: @product, local: true) do |form| %>
+<style>
+  .product-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  .product-form label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+  }
+  .product-form input, .product-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .product-form input[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .product-form input[type="submit"]:hover {
+    background-color: #004494;
+  }
+</style>
+
+<%= form_with(model: @product, local: true, html: { class: "product-form" }) do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
 
