@@ -1,1 +1,22 @@
-<%= render 'form', product: @product %>
+<!-- app/views/products/new.html.erb -->
+<%= form_with(model: @product, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+
+  <%= form.label :part_number %>
+  <%= form.text_field :part_number %>
+
+  <%= form.label :stock_quantity %>
+  <%= form.number_field :stock_quantity %>
+
+  <%= form.label :images, "Upload Images" %>
+  <%= form.file_field :images, multiple: true, accept: 'image/*' %>
+
+  <%= form.submit "Submit" %>
+<% end %>

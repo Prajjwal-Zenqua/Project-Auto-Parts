@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_23_124336) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_080627) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,12 +39,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_124336) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "product_images", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "image_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_images_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.text "description"
-    t.decimal "price"
+    t.decimal "price", precision: 10, scale: 2
+    t.string "part_number"
+    t.integer "stock_quantity"
+    t.string "image"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,4 +73,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_124336) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_images", "products"
 end
