@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   root to: "home#index" 
   resources :products
 
+  get '/contact', to: 'home#contact'
+
   # root to: "index#about"
   # Defines the root path route ("/")
   # root "posts#index"
   
 end
+
