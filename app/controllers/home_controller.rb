@@ -10,6 +10,15 @@ class HomeController < ApplicationController
     # @user = User.new(user_params)
   end
 
+  def contact
+    # This action renders the contact page
+  end
+
+  def contact_submit
+    # This action handles the form submission
+    # You can process the form data here
+  end
+
   private
   # def user_params
   #   params.require(:user).permit(:email, :password, :status)
