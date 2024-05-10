@@ -14,6 +14,10 @@ class HomeController < ApplicationController
     # This action renders the contact page
   end
 
+  def index
+    # his action renders the index page
+  end
+  
   def contact_submit
     # This action handles the form submission
     # You can process the form data here
