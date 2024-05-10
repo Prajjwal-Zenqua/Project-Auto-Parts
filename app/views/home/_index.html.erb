@@ -78,11 +78,10 @@ footer {
   padding: 10px 20px;
   background: #222;
   color: #fff;
-  position: absolute;
+  position: fixed; /* Change to fixed */
   bottom: 0;
   width: 100%;
 }
-
 .clearfix::after {
   content: "";
   clear: both;
@@ -104,7 +103,31 @@ footer {
  </style>
 </head>
 <body>
-
+<header>
+    <div >
+        <h1>Auto Parts Store</h1>
+    </div>
+    <div class="welcome">
+        <div class="welcome-message">Welcome <%= current_user.email %></div>
+    </div>
+    <nav>
+        <ul>
+            <% if current_user.status == "buyer" %>
+                <li><a href="#Buyer">Buyer Profile</a></li>
+                <li><a href="#services">Buy Product</a></li>
+            <% elsif current_user.status == "seller" %>
+                <li><a href="#Seller">Seller Profile</a></li>
+                <li><a href="/addproduct">Add Product</a></li>
+            <% end %>
+            <li><a href="/index">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="sign-out-btn">
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, form_class: "button" %>
+    </div>
+</header>
 <%= yield %>
 
 <footer>
