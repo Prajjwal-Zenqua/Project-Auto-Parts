@@ -5,8 +5,9 @@ class HomeController < ApplicationController
     # debugger
     render
   end
+
   def create
-    debugger
+    # debugger
     # @user = User.new(user_params)
   end
 
@@ -14,10 +15,6 @@ class HomeController < ApplicationController
     # This action renders the contact page
   end
 
-  def index
-    # his action renders the index page
-  end
-  
   def contact_submit
     # This action handles the form submission
     # You can process the form data here

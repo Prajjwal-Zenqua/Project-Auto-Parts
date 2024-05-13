@@ -114,13 +114,13 @@ footer {
         <ul>
             <% if current_user.status == "buyer" %>
                 <li><a href="#Buyer">Buyer Profile</a></li>
-                <li><a href="#services">Buy Product</a></li>
+                <li><a href="/buyproduct">Buy Product</a></li>
             <% elsif current_user.status == "seller" %>
                 <li><a href="#Seller">Seller Profile</a></li>
                 <li><a href="/addproduct">Add Product</a></li>
             <% end %>
             <li><a href="/index">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>

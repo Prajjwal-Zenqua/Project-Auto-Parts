@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sellers/show'
   devise_for :users
   
   # , controllers: {
@@ -15,7 +16,11 @@ Rails.application.routes.draw do
   get '/contact', to: 'home#contact'
   get '/index', to: 'home#index'
   get '/addproduct', to: 'products#new'
+  get '/buyproduct', to: 'products#show'
+  
+  # get 'about', to: 'pages#about'
 
+  resources :sellers, only: [:show]
   # root to: "index#about"
   # Defines the root path route ("/")
   # root "posts#index"
