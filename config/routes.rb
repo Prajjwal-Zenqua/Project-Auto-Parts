@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'home#contact'
   get '/index', to: 'home#index'
+  
+  get '/seller', to: 'sellers#show'
   get '/addproduct', to: 'products#new'
   get '/buyproduct', to: 'products#show'
   
